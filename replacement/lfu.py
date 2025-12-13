@@ -1,16 +1,19 @@
+# LFU Cache Simulator
+# Implements Least Frequently Used (LFU) Cache Policy
 class LFUCache:
     def __init__(self, size):
-        self.size = size
-        self.cache = {}        
-        self.order = []     
+        self.size = size            #max cache size
+        self.cache = {}             # Stores: block -> frequency
+        self.order = []             # Maintains insertion order
 
-    def access(self, block):
-        hit = block in self.cache
+    def access(self, block):  
+        hit = block in self.cache     # Check if the block already exists in cache
 
         if hit:
-            self.cache[block] += 1
+            self.cache[block] += 1     # HIT: Increase frequency of the block
             print(f"Accessed: {block} | HIT  | Freq: {self.cache[block]}")
         else:
+            # MISS: Check if cache is full
             if len(self.cache) >= self.size:
                 min_freq = min(self.cache.values())
                 candidates = [b for b in self.cache if self.cache[b] == min_freq]
@@ -23,7 +26,7 @@ class LFUCache:
                 print(f"Evicted: {evict}")
                 self.cache.pop(evict)
                 self.order.remove(evict)
-
+# Insert the new block with frequency = 1
             self.cache[block] = 1
             self.order.append(block)
             print(f"Accessed: {block} | MISS | Cache: {self.cache}")
@@ -49,6 +52,8 @@ for ref in references:
     else:
         misses += 1
 
+
+# Display final results
 print("\nFinal Cache State:", lfu_cache.display())
 print("Total Hits  :", hits)
 print("Total Misses:", misses)
