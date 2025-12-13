@@ -17,23 +17,35 @@ class FIFOCache:
           
     def display(self):
         return self.cache
-    if __name__ == "__main__":
-        while True:
-            try:
-                cache_size = int(input("Enter cache size (positive integer): "))
-                if cache_size <= 0:
-                    raise ValueError
-                break
-            except ValueError:
-                print("Invalid input. Enter a positive integer.")
+    
+if __name__ == "__main__":
+    while True:
+        try:
+            cache_size = int(input("Enter cache size (positive integer): "))
+            if cache_size <= 0:
+                raise ValueError
+            break
+        except ValueError:
+            print("Invalid input. Enter a positive integer.")
 
-        while True:
-            try:
-                refs = input("Enter memory references (comma-separated): ")
-                references = [int(x.strip()) for x in refs.split(",") if x.strip()]
-                if not references:
-                    raise ValueError
-                break
-            except ValueError:
-                print("Invalid input. Enter comma-separated integers.")
+    while True:
+        try:
+            refs = input("Enter memory references (comma-separated): ")
+            references = [int(x.strip()) for x in refs.split(",") if x.strip()]
+            if not references:
+                raise ValueError
+            break
+        except ValueError:
+            print("Invalid input. Enter comma-separated integers.")
+
+    fifo_cache = FIFOCache(cache_size)
+    hits = 0
+    misses = 0
+
+    print("\n=== FIFO Cache Simulation ===\n")
+    for ref in references:
+        if fifo_cache.access(ref):
+            hits += 1
+        else:
+            misses += 1
     
