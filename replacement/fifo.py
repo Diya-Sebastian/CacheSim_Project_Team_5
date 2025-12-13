@@ -48,4 +48,9 @@ if __name__ == "__main__":
             hits += 1
         else:
             misses += 1
+
+    print("\nFinal Cache State:", fifo_cache.display())
+    print("Total Hits  :", hits)
+    print("Total Misses:", misses)
+    print(f"Hit Ratio   : {hits/len(references):.2f}")
     
