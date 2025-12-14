@@ -21,3 +21,15 @@ class DirectMappingCache:
         print("\nCache Status:")
         for i in range(self.cache_lines):
             print(f"Line {i}: {self.cache[i]}")
+            
+            
+# Example usage
+if __name__ == "__main__":
+    cache = DirectMappingCache(cache_lines=4)
+
+    memory_accesses = [0, 1, 2, 3, 4, 1, 5, 2]
+
+    for block in memory_accesses:
+        print(cache.access_memory(block))
+
+    cache.display_cache()
