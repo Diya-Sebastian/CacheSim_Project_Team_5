@@ -16,3 +16,8 @@ class DirectMappingCache:
         else:
             self.cache[line] = block_number
             return f"Cache MISS: Block {block_number} loaded into line {line}"
+        
+    def display_cache(self):
+        print("\nCache Status:")
+        for i in range(self.cache_lines):
+            print(f"Line {i}: {self.cache[i]}")
