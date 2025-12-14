@@ -1,4 +1,4 @@
-# LRU Cache Simulation
+# LRU Cache Simulation 
 
 class LRUCache:
     def __init__(self, size):
@@ -21,3 +21,16 @@ class LRUCache:
             self.cache.append(block)
             print(f"Accessed {block} → MISS | Cache: {self.cache}")
 
+
+# -------- Main Program --------
+cache_size = int(input("Enter cache size: "))
+
+reference_string = list(
+    map(int, input("Enter reference string (space-separated): ").split())
+)
+
+lru = LRUCache(cache_size)
+
+print("\n--- LRU Cache Simulation ---\n")
+for block in reference_string:
+    lru.access(block)
