@@ -1,0 +1,50 @@
+Algorithm: LRU Cache Simulation
+
+
+Step 1: Start
+
+Step 2: Read the cache size
+
+        Input the maximum number of blocks the cache can hold.
+
+Step 3: Read the reference string
+
+        Input a sequence of block numbers separated by spaces.
+
+Step 4: Initialize the LRU Cache
+
+        Create an empty list to represent the cache.
+
+        Set the cache capacity to the given size.
+
+Step 5: For each block in the reference string, do the following:
+
+    Step 5.1: Check for Cache HIT
+
+        If the block is already present in the cache:
+
+        Remove the block from its current position.
+
+        Insert the block at the end of the cache (marking it as most recently used).
+
+        Display HIT and the current cache contents.
+
+    Step 5.2: Handle Cache MISS
+
+        If the block is not present in the cache:
+
+        Check whether the cache is full.
+
+        If full:
+
+        Remove the first block from the cache (least recently used block).
+
+        Display the evicted block.
+
+        Insert the new block at the end of the cache.
+
+        Display MISS and the updated cache contents.
+
+Step 6: Repeat Step 5 until all blocks are processed
+
+Step 7: Stop
