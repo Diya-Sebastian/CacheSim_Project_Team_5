@@ -1,0 +1,37 @@
+Algorithm 
+
+Step 1: Start 
+
+Step 2: Initialize the cache 
+    Create an empty list cache to store blocks 
+    Initialize hits = 0 and misses = 0 
+
+Step 3: Take user input 
+    Ask user for cache_size (positive integer) 
+    Ask user for memory references (comma-separated integers) 
+    Validate inputs to ensure correctness 
+
+Step 4: For each memory reference in the sequence: 
+    Check if the block is already in cache 
+
+    If yes: 
+    Increment hits by 1 
+    Print “HIT” and current cache content 
+
+    If no: 
+    Increment misses by 1 
+
+    If cache is full: 
+    Remove the first (oldest) block from the cache 
+    Print which block was evicted 
+
+    Add the current block to the end of the cache 
+    Print “MISS” and updated cache content 
+
+Step 5: After processing all references: 
+    Display the final cache state 
+    Display total hits 
+    Display total misses 
+    Calculate and display hit ratio = hits / total_references 
+
+Step 6: End
